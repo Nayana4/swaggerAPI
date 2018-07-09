@@ -1,0 +1,66 @@
+---
+swagger: "2.0"
+info:
+  description: "API to download Metadata"
+  version: "1.0.0"
+  title: "MetaData"
+host: "virtserver.swaggerhub.com"
+basePath: "/fenet/MetaData/1.0.0"
+schemes:
+- "https"
+paths:
+  /femeta/{metaParameters}:
+    get:
+      summary: "Gets Meta Data"
+      description: "Takes in the Product Name, Product Version, zfenet Channel and\
+        \ Model Number to provide the meta Data"
+      operationId: "femeta_get_meta_data"
+      parameters:
+      - name: "metaParameters"
+        in: "path"
+        description: "The Product Name, Product Version, Fenet Channel and Model Number"
+        required: true
+        type: "string"
+        maxLength: 250
+        minLength: 30
+        pattern: "[a-z0-9-+.]"
+        x-regex: "[a-z0-9-+.]"
+        x-modifiers: []
+      responses:
+        200:
+          description: "Metadata in JSON format"
+          schema:
+            type: "object"
+        404:
+          description: "The product with the given version does not exist."
+        500:
+          description: "An unexpected error occured."
+      x-swagger-router-controller: "fenet_server.controllers.default_controller"
+  /fecontent/{scParameters}:
+    get:
+      summary: "Gets security content image"
+      description: "Takes in the Product Name, Product Version, Channel and SC Channel\
+        \ to provide the image to download"
+      operationId: "fecontent_get_sc_image"
+      produces:
+      - "image/*"
+      parameters:
+      - name: "scParameters"
+        in: "path"
+        description: "The Product Name, Product Version, Channel and SC Channel"
+        required: true
+        type: "string"
+        maxLength: 250
+        minLength: 30
+        pattern: "[a-z0-9-+.]"
+        x-regex: "[a-z0-9-+.]"
+        x-modifiers: []
+      responses:
+        200:
+          description: "Security content Image"
+        404:
+          description: "The product with the given version does not exist."
+        500:
+          description: "An unexpected error occured."
+      x-swagger-router-controller: "fenet_server.controllers.default_controller"
+definitions: {}
