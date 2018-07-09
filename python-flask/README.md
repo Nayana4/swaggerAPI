@@ -21,13 +21,13 @@ python3 -m fenet_server
 and open your browser to here:
 
 ```
-http://localhost:5000/fenet/MetaData/1.0.0/ui/
+http://localhost:5000/fenet2/1.0.0/ui/
 ```
 
 Your Swagger definition lives here:
 
 ```
-http://localhost:5000/fenet/MetaData/1.0.0/swagger.json
+http://localhost:5000/fenet2/1.0.0/swagger.json
 ```
 
 To launch the integration tests, use tox:
