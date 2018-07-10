@@ -17,13 +17,15 @@ def fecontent_get_sc_image(scParameters):  # noqa: E501
     return 'do some magic!'
 
 
-def femeta_get_meta_data(metaParameters):  # noqa: E501
+def femeta_get_meta_data(metaParameters, range=None):  # noqa: E501
     """Gets Meta Data
 
     Takes in the Product Name, Product Version, zfenet Channel and Model Number to provide the meta Data # noqa: E501
 
     :param metaParameters: The Product Name, Product Version, Fenet Channel and Model Number
     :type metaParameters: str
+    :param range: range header for partial downloads
+    :type range: str
 
     :rtype: object
     """

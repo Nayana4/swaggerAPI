@@ -26,6 +26,11 @@ paths:
         pattern: "[a-z0-9-+.]"
         x-regex: "[a-z0-9-+.]"
         x-modifiers: []
+      - name: "range"
+        in: "header"
+        description: "range header for partial downloads"
+        required: false
+        type: "string"
       responses:
         200:
           description: "Metadata in JSON format"
