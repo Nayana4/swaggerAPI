@@ -27,9 +27,11 @@ class TestDefaultController(BaseTestCase):
 
         Gets Meta Data
         """
+        headers = [('range', 'range_example')]
         response = self.client.open(
             '/fenet/MetaData/1.0.0/femeta/{metaParameters}'.format(metaParameters='metaParameters_example'),
-            method='GET')
+            method='GET',
+            headers=headers)
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))
 
