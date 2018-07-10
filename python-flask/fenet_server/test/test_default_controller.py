@@ -16,9 +16,11 @@ class TestDefaultController(BaseTestCase):
 
         Gets security content image
         """
+        headers = [('range', 'range_example')]
         response = self.client.open(
             '/fenet/MetaData/1.0.0/fecontent/{scParameters}'.format(scParameters='scParameters_example'),
-            method='GET')
+            method='GET',
+            headers=headers)
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))
 
